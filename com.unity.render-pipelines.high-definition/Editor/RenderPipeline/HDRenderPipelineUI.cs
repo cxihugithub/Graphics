@@ -857,8 +857,12 @@ namespace UnityEditor.Rendering.HighDefinition
             if (m_ShowFogLowQualitySection)
             {
                 int quality = (int)ScalableSettingLevelParameter.Level.Low;
-                EditorGUILayout.PropertyField(serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogBudget.GetArrayElementAtIndex(quality), Styles.FogSettingsBudget);
-                EditorGUILayout.PropertyField(serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogRatio.GetArrayElementAtIndex(quality), Styles.FogSettingsRatio);
+                var budget = serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogBudget.GetArrayElementAtIndex(quality);
+                EditorGUILayout.PropertyField(budget, Styles.FogSettingsBudget);
+                budget.floatValue = Mathf.Clamp(budget.floatValue, 0.0f, 1.0f);
+                var ratio = serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogRatio.GetArrayElementAtIndex(quality);
+                EditorGUILayout.PropertyField(ratio, Styles.FogSettingsRatio);
+                ratio.floatValue = Mathf.Clamp(ratio.floatValue, 0.0f, 1.0f);
             }
 
             m_ShowFogMediumQualitySection = EditorGUILayout.Foldout(m_ShowFogMediumQualitySection, Styles.mediumQualityContent);
@@ -866,8 +870,12 @@ namespace UnityEditor.Rendering.HighDefinition
             if (m_ShowFogMediumQualitySection)
             {
                 int quality = (int)ScalableSettingLevelParameter.Level.Medium;
-                EditorGUILayout.PropertyField(serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogBudget.GetArrayElementAtIndex(quality), Styles.FogSettingsBudget);
-                EditorGUILayout.PropertyField(serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogRatio.GetArrayElementAtIndex(quality), Styles.FogSettingsRatio);
+                var budget = serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogBudget.GetArrayElementAtIndex(quality);
+                EditorGUILayout.PropertyField(budget, Styles.FogSettingsBudget);
+                budget.floatValue = Mathf.Clamp(budget.floatValue, 0.0f, 1.0f);
+                var ratio = serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogRatio.GetArrayElementAtIndex(quality);
+                EditorGUILayout.PropertyField(ratio, Styles.FogSettingsRatio);
+                ratio.floatValue = Mathf.Clamp(ratio.floatValue, 0.0f, 1.0f);
             }
 
             m_ShowFogHighQualitySection = EditorGUILayout.Foldout(m_ShowFogHighQualitySection, Styles.highQualityContent);
@@ -875,8 +883,12 @@ namespace UnityEditor.Rendering.HighDefinition
             if (m_ShowFogHighQualitySection)
             {
                 int quality = (int)ScalableSettingLevelParameter.Level.High;
-                EditorGUILayout.PropertyField(serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogBudget.GetArrayElementAtIndex(quality), Styles.FogSettingsBudget);
-                EditorGUILayout.PropertyField(serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogRatio.GetArrayElementAtIndex(quality), Styles.FogSettingsRatio);
+                var budget = serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogBudget.GetArrayElementAtIndex(quality);
+                EditorGUILayout.PropertyField(budget, Styles.FogSettingsBudget);
+                budget.floatValue = Mathf.Clamp(budget.floatValue, 0.0f, 1.0f);
+                var ratio = serialized.renderPipelineSettings.lightingQualitySettings.VolumetricFogRatio.GetArrayElementAtIndex(quality);
+                EditorGUILayout.PropertyField(ratio, Styles.FogSettingsRatio);
+                ratio.floatValue = Mathf.Clamp(ratio.floatValue, 0.0f, 1.0f);
             }
         }
 
